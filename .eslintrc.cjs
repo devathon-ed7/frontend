@@ -7,13 +7,20 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:react-hooks/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs','node_modules'],
   parser: '@typescript-eslint/parser',
+  parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto"
+      }
     ],
     'eqeqeq': ['error', 'always'],
     'no-empty-function': 'error',

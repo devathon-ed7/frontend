@@ -1,8 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-
-interface ApiConfig {
-  baseUrl: string;
-}
+import { ApiConfig } from "../types/apiType";
 
 const params: ApiConfig = {
   baseUrl:

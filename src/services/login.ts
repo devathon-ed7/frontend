@@ -1,13 +1,7 @@
 import api from "./api";
 import { handleAxiosError } from "../utils/errorHelper";
 import { LOGIN_ENDPOINT } from "./apiConfig";
-
-export interface Login {
-  id: number;
-  username: string;
-  password: string;
-  token: string;
-}
+import { Login } from "../types/apiType";
 
 const login = async (credentials: Login) => {
   try {

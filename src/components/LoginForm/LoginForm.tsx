@@ -15,7 +15,7 @@ export const LoginForm = () => {
     <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-5">
       <InputField
         id="email"
-        type="text"
+        type="email"
         placeholder="Correo Electrónico"
         value={email}
         onChange={(e) => setEmail(e.target.value)}

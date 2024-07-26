@@ -21,7 +21,7 @@ const LoginView = () => {
               <span>
                 ¿No tienes cuenta?
                 <a href="" className="text-black">
-                  Reguistrate
+                  Registrate
                 </a>
                 {/* <Link to={""} className="text-black">
                   Reguistrarse

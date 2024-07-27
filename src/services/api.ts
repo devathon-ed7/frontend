@@ -1,9 +1,16 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { ApiConfig } from "../types/apiType";
+
+interface ApiConfig {
+  baseUrl: string;
+  headers: Record<string, string>;
+}
 
 const params: ApiConfig = {
   baseUrl:
     import.meta.env.VITE_NODE_ENV === "development" ? import.meta.env.VITE_BACKEND_SERVER : "/",
+  headers: {
+    "Content-Type": "application/json",
+  },
 };
 
 const axiosConfig: AxiosRequestConfig = {

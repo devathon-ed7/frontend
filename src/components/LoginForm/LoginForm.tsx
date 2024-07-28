@@ -2,8 +2,8 @@ import { FormEvent, useState } from "react";
 import { InputField } from "../Input/Input";
 
 export const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email] = useState("");
+  const [password] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [errors, setErrors] = useState({ email: "", password: "" });
 
@@ -34,22 +34,18 @@ export const LoginForm = () => {
       <div className="flex flex-col gap-2">
         <InputField
           id="email"
-          title="Email"
+          label="Email"
           type="email"
           placeholder="correo@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
           error={errors.email}
         />
       </div>
       <div className="flex flex-col gap-2">
         <InputField
           id="password"
-          title="Contraseña"
+          label="Contraseña"
           type="password"
           placeholder="*********"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
           error={errors.password}
         />
       </div>

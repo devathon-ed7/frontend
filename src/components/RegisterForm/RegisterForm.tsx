@@ -2,9 +2,9 @@ import { FormEvent, useState } from "react";
 import { InputField } from "../Input/Input";
 
 const RegisterForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
+  const [email] = useState("");
+  const [password] = useState("");
+  const [repeatPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [errors, setErrors] = useState({ email: "", password: "", repeatPassword: "" });
 
@@ -39,29 +39,23 @@ const RegisterForm = () => {
     <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-5">
       <InputField
         id="email"
-        title="Correo Electrónico"
+        label="Correo Electrónico"
         type="text"
         placeholder="correo@example.com"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
         error={errors.email}
       />
       <InputField
         id="password"
-        title="Contraseña"
+        label="Contraseña"
         type="password"
         placeholder="*********"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
         error={errors.password}
       />
       <InputField
         id="repeatPassword"
-        title="Repetir Contraseña"
+        label="Repetir Contraseña"
         type="password"
         placeholder="*********"
-        value={repeatPassword}
-        onChange={(e) => setRepeatPassword(e.target.value)}
         error={errors.repeatPassword}
       />
       <div className="flex flex-col gap-4">

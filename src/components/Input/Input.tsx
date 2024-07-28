@@ -18,10 +18,10 @@ export const InputField = ({
       title={title}
       type={type}
       placeholder={placeholder}
-      className={`bg-gray-100 border ${error ? "border-red-500" : "border-gray-300"} rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full p-2`}
+      className={`border bg-gray-100 ${error ? "border-red-500" : "border-gray-300"} w-full rounded-md p-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
       value={value}
       onChange={onChange}
     />
-    {error && <div className="text-red-500 text-sm mt-1">{error}</div>}
+    {error && <div className="mt-1 text-sm text-red-500">{error}</div>}
   </div>
 );

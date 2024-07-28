@@ -12,7 +12,6 @@ const useLogin = () => {
     });
     //typescript complains about response.token being undefined
     const { token } = response.data;
-    console.log(token);
     setToken(token);
   };
 

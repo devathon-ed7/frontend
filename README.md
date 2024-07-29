@@ -1,11 +1,41 @@
-# React + TypeScript + Vite
+<!-- # React + TypeScript + Vite -->
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Inventory system
 
-Currently, two official plugins are available:
+This invention system, which is participating in an event called devathon, which is organized by **@Pedro Plascencia** who makes content on twitch and youtube as a **@programacion-es**
+<br>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+
+<!-- ![GitHub contributors](https://img.shields.io/github/contributors/kacubillos/devathon-backend)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/w/kacubillos/devathon-backend/develop) -->
+
+</div>
+
+## Getting started
+
+1. clone this repository
+
+   ```sh
+   git clone https://github.com/kacubillos/devathon-front
+   ```
+2. install dependencies
+
+   ```bash
+   npm install
+   ```
+
+3. Run the eslint
+    ```bash
+   npm run lint
+   ```
 
 ## Expanding the ESLint configuration
 

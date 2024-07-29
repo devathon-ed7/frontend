@@ -1,9 +1,9 @@
 import api from "./api";
 import { handleAxiosError } from "../utils/errorHelper";
 import { LOGIN_ENDPOINT } from "./apiConfig";
-import { Login } from "../types/apiType";
+import { Credentials } from "../types/apiTypes";
 
-const login = async (credentials: Login) => {
+const login = async (credentials: Credentials) => {
   try {
     const response = await api.post(LOGIN_ENDPOINT, { ...credentials });
     return response;

@@ -1,3 +1,17 @@
 {
-  "homeTitle": "Bienvenidos"
+  "homeTitle": "Bienvenidos",
+
+  "signupTitle": "Crea tu cuenta",
+  "emailLabel": "Correo electrónico",
+  "emailPlaceholder": "Escribe tu correo electrónico",
+  "invalidEmailError": "Correo electrónico invalido",
+  "passwordLabel": "Contraseña",
+  "passwordPlaceholder": "Escribe tu contraseña",
+  "repeatPasswordLabel": "Confirma tu contraseña",
+  "repeatPasswordPlaceholder": "Confirma tu contraseña",
+  "passwordMismatchError": "Las contraseñas no coinciden",
+  "requiredInputError": "Este campo es requerido",
+  "createAccount": "Regístrate ahora",
+  "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+  "loginAction": "Iniciar sesión"
 }

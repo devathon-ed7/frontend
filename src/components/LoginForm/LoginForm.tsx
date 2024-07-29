@@ -2,8 +2,8 @@ import { FormEvent, useState } from "react";
 import { InputField } from "../Input/Input";
 
 export const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email] = useState("");
+  const [password] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [errors, setErrors] = useState({ email: "", password: "" });
 
@@ -34,22 +34,18 @@ export const LoginForm = () => {
       <div className="flex flex-col gap-2">
         <InputField
           id="email"
-          title="Email"
+          label="Email"
           type="email"
           placeholder="correo@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
           error={errors.email}
         />
       </div>
       <div className="flex flex-col gap-2">
         <InputField
           id="password"
-          title="Contraseña"
+          label="Contraseña"
           type="password"
           placeholder="*********"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
           error={errors.password}
         />
       </div>
@@ -69,7 +65,7 @@ export const LoginForm = () => {
         </div>
         <button
           type="submit"
-          className="text-white bg-black h-12 sm:h-16 md:h-20 lg:h-16 rounded-lg px-24 md:px-6 lg:px-8 text-sm md:text-lg lg:text-xl self-center sm:self-auto"
+          className="h-12 self-center rounded-lg bg-black px-24 text-sm text-white sm:h-16 sm:self-auto md:h-20 md:px-6 md:text-lg lg:h-16 lg:px-8 lg:text-xl"
         >
           Iniciar Sesión
         </button>

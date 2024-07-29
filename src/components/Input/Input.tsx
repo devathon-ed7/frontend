@@ -16,11 +16,11 @@ export const InputField = forwardRef(
         title={label}
         type={type}
         placeholder={placeholder}
-        className={`border bg-gray-100 ${error ? "border-red-500" : "border-gray-300"} w-full rounded-md p-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
+        className={`border bg-gray-100 ${error ? "border-red-500" : "border-gray-300"} w-full rounded-md px-4 py-2 shadow-sm placeholder:text-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
         ref={ref}
         {...inputProps}
       />
-      {error && <div className="mt-1 text-sm text-red-500">{error}</div>}
+      {error && <div className="text-xs text-red-500">{error}</div>}
     </div>
   ),
 );

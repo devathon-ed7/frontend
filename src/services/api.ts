@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import { useLoginStore } from "../store/login.store";
 
 interface ApiConfig {
   baseUrl: string;
@@ -34,5 +35,14 @@ const api = (axios: AxiosInstance) => {
     delete: <T>(url: string, config: AxiosRequestConfig = {}) => axios.delete<T>(url, config),
   };
 };
+
+axiosInstance.interceptors.request.use((config) => {
+  const token = useLoginStore.getState().token;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+});
 
 export default api(axiosInstance);

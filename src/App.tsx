@@ -1,7 +1,17 @@
-import AppRoutes from "./routes";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
-function App() {
-  return <AppRoutes />;
-}
+export const App = () => {
+  const path = useLocation();
+
+  if (path.pathname === "/") {
+    return <Navigate to="/dashboard" />;
+  }
+
+  return (
+    <main>
+      <Outlet />
+    </main>
+  );
+};
 
 export default App;

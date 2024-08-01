@@ -7,6 +7,7 @@ import ForgotPassView from "../views/ForgotPassView/ForgotPassView";
 import { AuthLayout, DashboardLayout } from "../layouts";
 import App from "../App";
 import { Dashboard } from "../views/DashboardView/DashboardView";
+import { UserView } from "../views/UserView/UserView";
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +19,11 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <DashboardLayout />,
-        children: [{ path: "", element: <Dashboard /> }],
+        children: [
+          { path: "home", element: <Dashboard /> },
+
+          { path: "users", element: <UserView /> },
+        ],
       },
       // auth routes
       {

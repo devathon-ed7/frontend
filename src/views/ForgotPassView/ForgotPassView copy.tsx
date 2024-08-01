@@ -18,14 +18,14 @@ const ForgotPassView = () => {
       <br></br>
       {t("forgotPassword")}
 
-      <h1 className="text-black font-semibold text-center text-xl sm:text-2xl md:text-3xl">
+      <h1 className="text-center text-xl font-semibold text-black sm:text-2xl md:text-3xl">
         Recupera tu cuenta
       </h1>
       <hr />
       <p className="text-center text-xs sm:text-xl md:text-2xl">
         Introduce tu correo electrónico o número de móvil para buscar tu cuenta.
       </p>
-      <form className="flex flex-col ">
+      <form className="flex flex-col">
         <InputField
           id="email"
           type="email"

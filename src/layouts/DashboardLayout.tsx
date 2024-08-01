@@ -18,7 +18,7 @@ export const DashboardLayout = () => {
       <div className="relative flex flex-grow overflow-y-auto">
         <div className="relative flex w-screen">
           <SideMenu />
-          <div className={`w-full p-4`}>
+          <div className={`w-full`}>
             <Outlet />
           </div>
         </div>

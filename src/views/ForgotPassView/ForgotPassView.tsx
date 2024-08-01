@@ -13,18 +13,18 @@ const ForgotPassView = () => {
     watch,
   } = useForm();
   return (
-    <div className="text-black box-border container flex flex-col space-y-4  mx-auto">
+    <div className="container mx-auto box-border flex flex-col space-y-4 text-black">
       <span>Logo</span>
       <br></br>
 
-      <h1 className="text-black font-semibold text-center text-xl sm:text-2xl md:text-3xl"><a href="#">
-        {t("forgotPassword")}</a>
+      <h1 className="text-center text-xl font-semibold text-black sm:text-2xl md:text-3xl">
+        <a href="#">{t("forgotPassword")}</a>
       </h1>
       <hr />
       <p className="text-center text-xs sm:text-xl md:text-2xl">
         Introduce tu correo electrónico o número de móvil para buscar tu cuenta.
       </p>
-      <form className="flex flex-col space-y-4 ">
+      <form className="flex flex-col space-y-4">
         <InputField
           id="email"
           type="email"

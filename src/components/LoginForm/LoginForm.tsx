@@ -1,61 +1,49 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { InputField } from "../Input/Input";
+import useLogin from "../../hooks/useLogin";
+import { Credentials } from "../../types/apiTypes";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
-  const [email] = useState("");
-  const [password] = useState("");
+  const [credentials, setCredentials] = useState<Credentials>({
+    username: "",
+    password: "",
+  });
   const [rememberMe, setRememberMe] = useState(false);
-  const [errors, setErrors] = useState({ email: "", password: "" });
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    let formIsValid = true;
-    const newErrors = { email: "", password: "" };
-
-    if (!email) {
-      newErrors.email = "El campo de email es obligatorio.";
-      formIsValid = false;
-    }
-
-    if (!password) {
-      newErrors.password = "El campo de contraseña es obligatorio.";
-      formIsValid = false;
-    }
-
-    setErrors(newErrors);
-
-    if (formIsValid) {
-      console.log({ email, password, rememberMe });
+  const { login } = useLogin();
+  const navigate = useNavigate();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      await login(credentials);
+      navigate("/dashboard");
+    } catch (error) {
+      //
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-2">
-      <div className="flex flex-col gap-2">
-        <InputField
-          id="email"
-          label="Email"
-          type="email"
-          placeholder="correo@example.com"
-          error={errors.email}
-        />
-      </div>
-      <div className="flex flex-col gap-2">
-        <InputField
-          id="password"
-          label="Contraseña"
-          type="password"
-          placeholder="*********"
-          error={errors.password}
-        />
-      </div>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-5">
+      <InputField
+        id="username"
+        type="text"
+        placeholder="Username"
+        value={credentials.username}
+        onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
+      />
+      <InputField
+        id="password"
+        type="password"
+        placeholder="Contraseña"
+        value={credentials.password}
+        onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+      />
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between sm:justify-start">
           <div className="flex items-center">
             <input
               type="checkbox"
               id="recordar"
-              name="rememberMe"
               className="mr-2"
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}

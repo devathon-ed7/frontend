@@ -15,6 +15,9 @@ export const SideMenu: React.FC = () => {
         <NavItem to="users" label="Users" compact={!isNavExpanded} hasIcon={false}>
           <span className="users-icon"></span>
         </NavItem>
+        <NavItem to="roles" label="Roles" compact={!isNavExpanded} hasIcon={false}>
+          <span className="role-icon"></span>
+        </NavItem>
       </ul>
       <div className="chevron-wrapper">
         <span

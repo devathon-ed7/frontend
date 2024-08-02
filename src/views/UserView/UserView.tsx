@@ -26,7 +26,7 @@ export const UserView = () => {
         {users.map((user) => (
           <div
             key={user.id}
-            className="m-4 flex h-60 w-60 flex-col border-neutral-200 p-4 shadow-xl"
+            className="m-4 flex h-60 w-60 flex-col rounded-lg border-neutral-200 p-4 shadow-xl"
           >
             <span className="avatar-icon self-center"></span>
             <div className="flex items-center justify-between">

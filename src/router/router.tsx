@@ -8,6 +8,8 @@ import { AuthLayout, DashboardLayout } from "../layouts";
 import App from "../App";
 import { Dashboard } from "../views/DashboardView/DashboardView";
 import { UserView } from "../views/UserView/UserView";
+import { RolesView } from "../views/RoleView/RolesView";
+import { CreateRoleView } from "../views/RoleView/CreateRoleView";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +25,8 @@ export const router = createBrowserRouter([
           { path: "home", element: <Dashboard /> },
 
           { path: "users", element: <UserView /> },
+          { path: "roles", element: <RolesView /> },
+          { path: "roles/create", element: <CreateRoleView /> },
         ],
       },
       // auth routes

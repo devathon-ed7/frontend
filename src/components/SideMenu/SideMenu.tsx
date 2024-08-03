@@ -11,11 +11,11 @@ export const SideMenu = () => {
   };
 
   return (
-    <nav className={`${isMaxNavWidth ? "max-nav-width" : "min-nav-width"} side-menu  `}>
+    <nav className={`${isMaxNavWidth ? "max-nav-width" : "min-nav-width"} side-menu`}>
       <ul className="nav-wrapper">
         <li className={`nav-item ${!isMaxNavWidth ? "compact" : ""}`}>
           <a href="/" className="flex items-center">
-            <span className="home-icon "></span>
+            <span className="home-icon"></span>
             <span className="home-text">Inicio</span>
           </a>
         </li>

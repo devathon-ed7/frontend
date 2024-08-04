@@ -34,7 +34,7 @@ export const RolesView = () => {
               <div>
                 <h2 className="text-lg">{role.name}</h2>
               </div>
-              <span className="ellipsis-icon"></span>
+              <Link to={`${role.id}`} className="ellipsis-icon"></Link>
             </div>
           </div>
         ))}

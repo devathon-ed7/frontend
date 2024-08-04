@@ -10,6 +10,7 @@ import { Dashboard } from "../views/DashboardView/DashboardView";
 import { UserView } from "../views/UserView/UserView";
 import { RolesView } from "../views/RoleView/RolesView";
 import { CreateRoleView } from "../views/RoleView/CreateRoleView";
+import { UpdateRoleView } from "../views/RoleView/UpdateRoleView";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
           { path: "users", element: <UserView /> },
           { path: "roles", element: <RolesView /> },
           { path: "roles/create", element: <CreateRoleView /> },
+          { path: "roles/:id", element: <UpdateRoleView /> },
         ],
       },
       // auth routes

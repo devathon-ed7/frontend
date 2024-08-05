@@ -6,7 +6,7 @@ import { PermissionRequest } from "../types";
 const getPermissions = async () => {
   try {
     const response = await api.get(PERMISSIONS_ENDPOINT);
-    return response.data;
+    return response;
   } catch (error) {
     handleAxiosError(error);
   }
@@ -15,7 +15,7 @@ const getPermissions = async () => {
 const createPermission = async (data: PermissionRequest) => {
   try {
     const response = await api.post(PERMISSIONS_ENDPOINT, data);
-    return response.data;
+    return response;
   } catch (error) {
     handleAxiosError(error);
   }

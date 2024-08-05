@@ -35,7 +35,7 @@ export const PermissionView = () => {
               <div>
                 <h2 className="text-lg">{permission.name}</h2>
               </div>
-              <Link to={`${permission.id}`} className="ellipsis-icon"></Link>
+              {/*<Link to={`${permission.id}`} className="ellipsis-icon"></Link> */}
             </div>
           </div>
         ))}

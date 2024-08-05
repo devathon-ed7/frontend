@@ -3,10 +3,10 @@ import { handleAxiosError } from "../utils/errorHelper";
 import { ROLES_ENDPOINT } from "./apiConfig";
 import { RolesResponse, RoleRequest } from "../types";
 
-const getRoles = async (): Promise<RolesResponse | undefined> => {
+const getRoles = async () => {
   try {
     const response = await api.get<RolesResponse>(ROLES_ENDPOINT);
-    return response.data;
+    return response;
   } catch (error) {
     handleAxiosError(error);
   }
@@ -15,7 +15,7 @@ const getRoles = async (): Promise<RolesResponse | undefined> => {
 const createRole = async (data: RoleRequest) => {
   try {
     const response = await api.post(ROLES_ENDPOINT, data);
-    return response.data;
+    return response;
   } catch (error) {
     handleAxiosError(error);
   }

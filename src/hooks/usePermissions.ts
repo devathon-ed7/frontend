@@ -8,7 +8,7 @@ const usePermissions = () => {
   const getPermissions = async () => {
     const response = await permissionsService.getPermissions();
     if (response) {
-      setPermissions(response);
+      setPermissions(response.data);
     }
   };
 

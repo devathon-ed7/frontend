@@ -9,7 +9,7 @@ const useRoles = () => {
     const response = await rolesService.getRoles();
 
     if (response) {
-      setRoles(response);
+      setRoles(response.data);
     }
   };
 

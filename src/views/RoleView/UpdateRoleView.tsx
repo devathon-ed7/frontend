@@ -3,12 +3,18 @@ import { BackTo } from "../../components/BackTo/BackTo";
 import { useRolesStore } from "../../store/roles.store";
 import { usePermissionsStore } from "../../store/permissions.store";
 import { Switcher } from "../../components/Switcher/Switcher";
+import { useRolePermissionStore } from "../../store/rolePermission.store";
 
 export const UpdateRoleView = () => {
   const { id } = useParams();
   const role = useRolesStore((state) => state.getRolById(Number(id)));
   const permissions = usePermissionsStore((state) => state.permissions);
-  const setPermissionById = usePermissionsStore((state) => state.setPermissionById);
+  //const setPermissionById = usePermissionsStore((state) => state.setPermissionById);
+  const getPermissionsforRole = useRolePermissionStore((state) =>
+    state.getPermissionsforRole(Number(id)),
+  );
+
+  const rolePermissions = useRolePermissionStore((state) => state.rolePermissions);
 
   const handleCheckboxChange = (id: number) => () => {
     setPermissionById(id);
@@ -23,6 +29,7 @@ export const UpdateRoleView = () => {
       <div className="flex-auto px-8">
         <h1 className="text-3xl">Actualizar rol</h1>
         <h2 className="mt-8">Permisos</h2>
+        {/* permission list */}
         {permissions.map((permission) => (
           <div
             key={permission.id}

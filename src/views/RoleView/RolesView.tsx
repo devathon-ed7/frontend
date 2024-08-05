@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
-import rolesService from "../../services/roles";
-import "./RolesView.css";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import useRoles from "../../hooks/useRoles";
+import "./RolesView.css";
+import { useRolesStore } from "../../store/roles.store";
 
 export const RolesView = () => {
-  const [roles, setRoles] = useState([]);
+  const { getRoles } = useRoles();
+  const roles = useRolesStore((state) => state.roles);
 
   useEffect(() => {
     const fetchRoles = async () => {
-      const response = await rolesService.getRoles();
-      setRoles(response);
+      await getRoles();
     };
     fetchRoles();
   }, []);
@@ -18,7 +19,7 @@ export const RolesView = () => {
       <div className="sticky top-0 z-50 flex h-16 w-full items-center justify-between border-b border-neutral-200 p-4">
         <h1>Roles</h1>
         <div>
-          <Link to="create" className="rounded-md bg-blue-500 px-2 py-2 text-sm text-white">
+          <Link to="create" className="btn-primary">
             + Nuevo
           </Link>
         </div>

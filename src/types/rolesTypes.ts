@@ -7,3 +7,8 @@ export interface Role {
 export interface RolesResponse {
   roles: Role[];
 }
+
+export interface RoleRequest {
+  name: string;
+  description: string;
+}

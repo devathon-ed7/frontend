@@ -1,27 +1,32 @@
-import "./SideMenu.css";
 import { useState } from "react";
+import "./SideMenu.css";
+import { NavItem } from "../NavItem/NavItem";
 
-export const SideMenu = () => {
-  const [isMaxNavWidth, setIsMaxNavWidth] = useState(true);
-  const [chevronClass, setChevronClass] = useState("chevron-left");
-
-  const toggleNavWidth = () => {
-    setIsMaxNavWidth(!isMaxNavWidth);
-    setChevronClass(isMaxNavWidth ? "chevron-right" : "chevron-left");
-  };
+export const SideMenu: React.FC = () => {
+  const [isNavExpanded, setIsNavExpanded] = useState(true);
+  const toggleNavExpansion = () => setIsNavExpanded(!isNavExpanded);
 
   return (
-    <nav className={`${isMaxNavWidth ? "max-nav-width" : "min-nav-width"} side-menu`}>
+    <nav className={`${isNavExpanded ? "max-nav-width" : "min-nav-width"} side-menu`}>
       <ul className="nav-wrapper">
-        <li className={`nav-item ${!isMaxNavWidth ? "compact" : ""}`}>
-          <a href="/" className="flex items-center">
-            <span className="home-icon"></span>
-            <span className="home-text">Inicio</span>
-          </a>
-        </li>
+        <NavItem to="home" label="Inicio" compact={!isNavExpanded} hasIcon={true}>
+          <span className="home-icon"></span>
+        </NavItem>
+        <NavItem to="users" label="Users" compact={!isNavExpanded} hasIcon={false}>
+          <span className="users-icon"></span>
+        </NavItem>
+        <NavItem to="roles" label="Roles" compact={!isNavExpanded} hasIcon={false}>
+          <span className="role-icon"></span>
+        </NavItem>
+        <NavItem to="permissions" label="Permisos" compact={!isNavExpanded} hasIcon={false}>
+          <span className="permission-icon"></span>
+        </NavItem>
       </ul>
       <div className="chevron-wrapper">
-        <span className={`${chevronClass} cursor-pointer`} onClick={toggleNavWidth}></span>
+        <span
+          className={`chevron ${isNavExpanded ? "chevron-left" : "chevron-right"} cursor-pointer`}
+          onClick={toggleNavExpansion}
+        ></span>
       </div>
     </nav>
   );

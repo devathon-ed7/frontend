@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn-primary {
+  @apply bg-cello-500 hover:bg-cello-600 rounded-md px-2 py-2 text-sm text-white;
+}
+
+.btn-secondary {
+  @apply bg-mercury-500 hover:bg-mercury-600 rounded-md px-2 py-2 text-sm text-neutral-100;
+}
+
+.container-with-actions{
+  @apply flex h-full flex-col justify-between overflow-y-auto;
+  
+}

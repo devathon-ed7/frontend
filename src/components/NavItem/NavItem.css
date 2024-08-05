@@ -1,0 +1,11 @@
+.nav-item {
+    @apply w-full p-1 cursor-pointer rounded-lg text-sm flex items-center;
+}
+
+.nav-item-icon{
+    @apply  bg-blue-500 text-white
+}
+
+.nav-item.compact .compact-text {
+    @apply hidden;
+}

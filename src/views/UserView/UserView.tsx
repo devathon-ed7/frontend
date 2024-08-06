@@ -16,9 +16,9 @@ export const UserView = () => {
   return (
     <div className="flex h-full flex-col">
       <div className="sticky top-0 z-50 flex h-16 w-full items-center justify-between border-b border-neutral-200 p-4">
-        <h1>Usuarios</h1>
+        <h1>Users</h1>
         <div>
-          <button className="btn-primary">+ Nuevo</button>
+          <button className="btn-primary">+ New</button>
         </div>
       </div>
       {/* content users list */}

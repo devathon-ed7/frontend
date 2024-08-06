@@ -1,6 +1,6 @@
 // import { useRolePermissionStore } from "../store/rolePermission.store";
 import rolePermissionService from "../services/rolePermission";
-import { RolePermissionRequest, RolePermissionsResponse } from "../types/rolePermissionTypes";
+import { RolePermissionRequest, RolePermissionsResponse } from "../types/rolePermission.types";
 
 const useRolePermission = () => {
   const setRolePermission = useRolePermissionStore((state) => state.setRolePermission);

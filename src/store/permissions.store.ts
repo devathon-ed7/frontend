@@ -1,5 +1,5 @@
 import { devtools, persist } from "zustand/middleware";
-import { Permission } from "../types/permissionsTypes";
+import { Permission } from "../types/permissions.types";
 import { create, StateCreator } from "zustand";
 import { customSessionStorage } from "./session.store";
 

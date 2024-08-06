@@ -1,6 +1,6 @@
 import { useLoginStore } from "../store/login.store";
 import loginService from "../services/login";
-import { Credentials } from "../types/apiTypes";
+import { Credentials } from "../types/api.types";
 
 const useLogin = () => {
   const setToken = useLoginStore((state) => state.setToken);

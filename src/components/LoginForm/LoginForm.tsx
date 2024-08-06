@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { InputField } from "../Input/Input";
 import useLogin from "../../hooks/useLogin";
-import { Credentials } from "../../types/apiTypes";
+import { Credentials } from "../../types/api.types";
 import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
@@ -9,7 +9,7 @@ export const LoginForm = () => {
     username: "",
     password: "",
   });
-  const [rememberMe, setRememberMe] = useState(false);
+  //const [rememberMe, setRememberMe] = useState(false);
   const { login } = useLogin();
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -34,11 +34,12 @@ export const LoginForm = () => {
       <InputField
         id="password"
         type="password"
-        placeholder="Contraseña"
+        placeholder="Password"
         value={credentials.password}
         onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
       />
       <div className="flex flex-col gap-4">
+        {/*}
         <div className="flex items-center justify-between sm:justify-start">
           <div className="flex items-center">
             <input
@@ -50,12 +51,13 @@ export const LoginForm = () => {
             />
             <label htmlFor="recordar">Recordar</label>
           </div>
-        </div>
+        </div> 
+        */}
         <button
           type="submit"
-          className="h-12 self-center rounded-lg bg-black px-24 text-sm text-white sm:h-16 sm:self-auto md:h-20 md:px-6 md:text-lg lg:h-16 lg:px-8 lg:text-xl"
+          className="h-12 self-center rounded-lg bg-black px-24 text-sm text-white sm:self-auto md:px-6 md:text-lg lg:px-8 lg:text-xl"
         >
-          Iniciar Sesión
+          Log in
         </button>
       </div>
     </form>

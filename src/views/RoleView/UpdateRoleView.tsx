@@ -11,8 +11,8 @@ import { useRolePermissionStore } from "../../store/rolePermission.store";
 //hooks
 import useRolePermission from "../../hooks/useRolePermission";
 import usePermissions from "../../hooks/usePermissions";
-import { RolePermission, RolePermissionRequest } from "../../types";
-import rolePermission from "../../services/rolePermission";
+import { RolePermission } from "../../types";
+//import rolePermission from "../../services/rolePermission";
 
 export const UpdateRoleView = () => {
   const { id } = useParams();
@@ -22,7 +22,7 @@ export const UpdateRoleView = () => {
   const permissions = usePermissionsStore((state) => state.permissions);
   const setPermissionById = usePermissionsStore((state) => state.setPermissionById);
   //role permissions
-  const rolePermissions = useRolePermissionStore(useShallow((state) => state.rolePermissions));
+  //const rolePermissions = useRolePermissionStore(useShallow((state) => state.rolePermissions));
   const setRolePermission = useRolePermissionStore((state) => state.setRolePermission);
   //hook
   const { getPermissionForRole, createRolePermission } = useRolePermission();

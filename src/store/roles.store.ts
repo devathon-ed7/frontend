@@ -1,7 +1,7 @@
 import { create, StateCreator } from "zustand";
 import { customSessionStorage } from "./session.store";
 import { devtools, persist } from "zustand/middleware";
-import { Role } from "../types/rolesTypes";
+import { Role } from "../types/roles.types";
 
 interface RolesStore {
   roles: Role[];

@@ -1,7 +1,7 @@
 import api from "./api";
 import { handleAxiosError } from "../utils/errorHelper";
 import { ROLE_PERMISSION_ENDPOINT } from "./apiConfig";
-import { RolePermissionRequest } from "../types/rolePermissionTypes";
+import { RolePermissionRequest } from "../types/rolePermission.types";
 
 const createRolePermission = async (data: RolePermissionRequest[]) => {
   try {

@@ -3,8 +3,10 @@ import { InputField } from "../Input/Input";
 import useLogin from "../../hooks/useLogin";
 import { Credentials } from "../../types/api.types";
 import { useNavigate } from "react-router-dom";
+import useNotification from "../../hooks/useNotification";
 
 export const LoginForm = () => {
+  const { showNotification } = useNotification();
   const [credentials, setCredentials] = useState<Credentials>({
     username: "",
     password: "",
@@ -16,6 +18,7 @@ export const LoginForm = () => {
     event.preventDefault();
     try {
       await login(credentials);
+      showNotification("Login successful", 3000, "success");
       navigate("/dashboard");
     } catch (error) {
       //

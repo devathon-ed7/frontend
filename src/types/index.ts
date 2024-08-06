@@ -5,3 +5,4 @@ export * from "./roles.types";
 export * from "./permissions.types";
 export * from "./rolePermission.types";
 export * from "./input.types";
+export * from "./notification.types";

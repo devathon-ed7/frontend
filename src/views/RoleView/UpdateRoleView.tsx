@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: ["error", { "args": "none" }]*/
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useShallow } from "zustand/react/shallow";
@@ -10,6 +11,8 @@ import { useRolePermissionStore } from "../../store/rolePermission.store";
 //hooks
 import useRolePermission from "../../hooks/useRolePermission";
 import usePermissions from "../../hooks/usePermissions";
+import { RolePermission, RolePermissionRequest } from "../../types";
+import rolePermission from "../../services/rolePermission";
 
 export const UpdateRoleView = () => {
   const { id } = useParams();
@@ -20,9 +23,9 @@ export const UpdateRoleView = () => {
   const setPermissionById = usePermissionsStore((state) => state.setPermissionById);
   //role permissions
   const rolePermissions = useRolePermissionStore(useShallow((state) => state.rolePermissions));
-  //const setRolePermission = useRolePermissionStore((state) => state.setRolePermission);
+  const setRolePermission = useRolePermissionStore((state) => state.setRolePermission);
   //hook
-  const { getPermissionForRole } = useRolePermission();
+  const { getPermissionForRole, createRolePermission } = useRolePermission();
   const { getPermissions } = usePermissions();
 
   useEffect(() => {
@@ -43,6 +46,17 @@ export const UpdateRoleView = () => {
 
   const handlePermissionChange = (id: number) => {
     setPermissionById(id);
+  };
+
+  const handleUpdateRole = async () => {
+    const payload: RolePermission[] = permissions.map((permission) => ({
+      role_id: Number(id),
+      permission_id: permission.id,
+      active: permission.active,
+    }));
+
+    setRolePermission(payload);
+    await createRolePermission(payload);
   };
 
   return (
@@ -79,14 +93,14 @@ export const UpdateRoleView = () => {
         <pre>{JSON.stringify(permissions, null, 2)}</pre>
       </div>
       {/** actions */}
-      {/*<div className="mt-auto flex items-center space-x-2 border-t border-neutral-200 p-4">
+      <div className="mt-auto flex items-center space-x-2 border-t border-neutral-200 p-4">
         <button className="btn-primary" onClick={() => handleUpdateRole()}>
           Save
-        </button>
+        </button> {/*}
         <button className="btn-secondary" onClick={() => setData({ name: "", description: "" })}>
           Cancel
-        </button>
-      </div>*/}
+        </button> */}
+      </div> 
     </div>
   );
 };

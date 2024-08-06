@@ -3,9 +3,9 @@ import rolePermissionService from "../services/rolePermission";
 import { RolePermissionRequest, RolePermissionsResponse } from "../types/rolePermissionTypes";
 
 const useRolePermission = () => {
-  const setRolePermissions = useRolePermissionStore((state) => state.setRolePermissions);
+  const setRolePermission = useRolePermissionStore((state) => state.setRolePermission);
 
-  const createRolePermission = async (data: RolePermissionRequest) => {
+  const createRolePermission = async (data: RolePermissionRequest[]) => {
     const response = await rolePermissionService.createRolePermission(data);
     if (response.status === 201) {
       //TODO: get role permissions
@@ -16,7 +16,7 @@ const useRolePermission = () => {
     const response = await rolePermissionService.getPermissionsforRole(role_id);
     if (response.status === 200) {
       const data = response.data as RolePermissionsResponse;
-      setRolePermissions(data.rolePermission);
+      setRolePermission(data.rolePermission);
     }
   };
 

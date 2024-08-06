@@ -3,22 +3,32 @@ import { BackTo } from "../../components/BackTo/BackTo";
 import { useRolesStore } from "../../store/roles.store";
 import { usePermissionsStore } from "../../store/permissions.store";
 import { Switcher } from "../../components/Switcher/Switcher";
-import { useRolePermissionStore } from "../../store/rolePermission.store";
+// import { useRolePermissionStore } from "../../store/rolePermission.store";
 
 export const UpdateRoleView = () => {
   const { id } = useParams();
   const role = useRolesStore((state) => state.getRolById(Number(id)));
   const permissions = usePermissionsStore((state) => state.permissions);
-  //const setPermissionById = usePermissionsStore((state) => state.setPermissionById);
-  const getPermissionsforRole = useRolePermissionStore((state) =>
-    state.getPermissionsforRole(Number(id)),
-  );
+  // const getPermissionsforRole = useRolePermissionStore((state) =>
+  //   state.getPermissionsforRole(Number(id)),
+  // );
 
-  const rolePermissions = useRolePermissionStore((state) => state.rolePermissions);
+  // const rolePermissions = useRolePermissionStore((state) => state.rolePermissions);
 
   const handleCheckboxChange = (id: number) => () => {
-    setPermissionById(id);
+    // Implementa la lógica para manejar el cambio de checkbox
+    console.log(`Checkbox changed for permission id: ${id}`);
   };
+
+  function handleUpdateRole(): void {
+    // Implementa la lógica para actualizar el rol
+    console.log("Updating role...");
+  }
+
+  function setData(arg0: { name: string; description: string }): void {
+    // Implementa la lógica para establecer los datos
+    console.log("Setting data...", arg0);
+  }
 
   return (
     <div className="container-with-actions">

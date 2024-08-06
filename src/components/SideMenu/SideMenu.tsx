@@ -12,13 +12,31 @@ export const SideMenu: React.FC = () => {
         <NavItem to="home" label="Inicio" compact={!isNavExpanded} hasIcon={true}>
           <span className="home-icon"></span>
         </NavItem>
-        <NavItem to="users" label="Users" compact={!isNavExpanded} hasIcon={false}>
+        <NavItem
+          to="users"
+          label="Users"
+          compact={!isNavExpanded}
+          hasIcon={false}
+          className="nav-item-hover"
+        >
           <span className="users-icon"></span>
         </NavItem>
-        <NavItem to="roles" label="Roles" compact={!isNavExpanded} hasIcon={false}>
+        <NavItem
+          to="roles"
+          label="Roles"
+          compact={!isNavExpanded}
+          hasIcon={false}
+          className="nav-item-hover"
+        >
           <span className="role-icon"></span>
         </NavItem>
-        <NavItem to="permissions" label="Permisos" compact={!isNavExpanded} hasIcon={false}>
+        <NavItem
+          to="permissions"
+          label="Permisos"
+          compact={!isNavExpanded}
+          hasIcon={false}
+          className="nav-item-hover"
+        >
           <span className="permission-icon"></span>
         </NavItem>
       </ul>

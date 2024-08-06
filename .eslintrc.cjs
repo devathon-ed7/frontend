@@ -24,6 +24,8 @@ module.exports = {
     ],
     'eqeqeq': ['error', 'always'],
     'no-empty-function': 'error',
-    '@typescript-eslint/no-explicit-any': 'warn'
-  },
+    '@typescript-eslint/no-explicit-any': 'warn',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'off'  
+    },
 }

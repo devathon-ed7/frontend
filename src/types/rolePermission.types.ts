@@ -5,7 +5,8 @@ export interface RolePermission {
 }
 
 export interface RolePermissionsResponse {
-  permissions: RolePermission[];
+  rolePermission: RolePermission[];
+  message: string;
 }
 
 export interface RolePermissionRequest {

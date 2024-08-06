@@ -1,24 +1,26 @@
 // import { useRolePermissionStore } from "../store/rolePermission.store";
 import rolePermissionService from "../services/rolePermission";
-import { RolePermissionRequest } from "../types/rolePermissionTypes";
+import { RolePermissionRequest, RolePermissionsResponse } from "../types/rolePermission.types";
 
 const useRolePermission = () => {
-  // const setRolePermissions = useRolePermissionStore((state) => state.setRolePermissions);
+  const setRolePermission = useRolePermissionStore((state) => state.setRolePermission);
 
-  const createRolePermission = async (data: RolePermissionRequest) => {
-    try {
-      const response = await rolePermissionService.createRolePermission(data);
-      if (response && response.status === 201) {
-        // TODO: get role permissions
-      } else {
-        console.error("Failed to create role permission:", response);
-      }
-    } catch (error) {
-      console.error("Error creating role permission:", error);
+  const createRolePermission = async (data: RolePermissionRequest[]) => {
+    const response = await rolePermissionService.createRolePermission(data);
+    if (response.status === 201) {
+      //TODO: get role permissions
     }
   };
 
-  return { createRolePermission };
+  const getPermissionForRole = async (role_id: number) => {
+    const response = await rolePermissionService.getPermissionsforRole(role_id);
+    if (response.status === 200) {
+      const data = response.data as RolePermissionsResponse;
+      setRolePermission(data.rolePermission);
+    }
+  };
+
+  return { createRolePermission, getPermissionForRole };
 };
 
 export default useRolePermission;

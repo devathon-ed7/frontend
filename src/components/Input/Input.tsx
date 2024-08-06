@@ -1,6 +1,5 @@
 import { forwardRef, LegacyRef } from "react";
-
-import { InputFieldProps } from "./Input.types";
+import { InputFieldProps } from "../../types/Input.types";
 
 export const InputField = forwardRef(
   (
@@ -13,7 +12,6 @@ export const InputField = forwardRef(
       </label>
       <input
         id={id}
-        title={label}
         type={type}
         placeholder={placeholder}
         className={`border bg-gray-100 ${error ? "border-red-500" : "border-gray-300"} w-full rounded-md px-4 py-3 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}

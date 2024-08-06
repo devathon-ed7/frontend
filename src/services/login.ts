@@ -1,7 +1,7 @@
 import api from "./api";
 import { handleAxiosError } from "../utils/errorHelper";
 import { LOGIN_ENDPOINT } from "./apiConfig";
-import { Credentials } from "../types/apiTypes";
+import { Credentials } from "../types/api.types";
 
 const login = async (credentials: Credentials) => {
   try {

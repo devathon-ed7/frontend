@@ -1,9 +1,9 @@
 import api from "./api";
 import { handleAxiosError } from "../utils/errorHelper";
 import { ROLE_PERMISSION_ENDPOINT } from "./apiConfig";
-import { RolePermissionRequest } from "../types/rolePermissionTypes";
+import { RolePermissionRequest } from "../types/rolePermission.types";
 
-const createRolePermission = async (data: RolePermissionRequest) => {
+const createRolePermission = async (data: RolePermissionRequest[]) => {
   try {
     const response = await api.post(ROLE_PERMISSION_ENDPOINT, data);
     return response;
@@ -12,7 +12,7 @@ const createRolePermission = async (data: RolePermissionRequest) => {
   }
 };
 
-const getPermissionsforRole = async (roleId: string) => {
+const getPermissionsforRole = async (roleId: number) => {
   try {
     const response = await api.get(`${ROLE_PERMISSION_ENDPOINT}/${roleId}`);
     return response;

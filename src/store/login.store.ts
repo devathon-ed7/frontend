@@ -1,7 +1,7 @@
 import { create, type StateCreator } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import { customSessionStorage } from "./session.store";
-import { Status } from "../types/userTypes";
+import { Status } from "../types/user.types";
 
 interface LoginStore {
   status: Status;

@@ -1,29 +1,19 @@
 import { devtools, persist } from "zustand/middleware";
-import { RolePermission } from "../types/rolePermissionTypes";
+import { RolePermission } from "../types/rolePermission.types";
 import { create, StateCreator } from "zustand";
 import { customSessionStorage } from "./session.store";
 
 interface RolePermissionStore {
   rolePermissions: RolePermission[];
-  setRolePermissions: (value: RolePermission[]) => void;
-  getPermissionsforRole: (role_id: number) => void;
+  setRolePermission: (value: RolePermission[]) => void;
 }
 
 const rolePermissionApi: StateCreator<RolePermissionStore, [["zustand/persist", unknown]]> = (
   set,
-  get,
 ) => ({
   rolePermissions: [],
-  setRolePermissions: (value: RolePermission[]) =>
-    set({ rolePermissions: value }, false, "SET_ROLE_PERMISSION"),
-  getPermissionsforRole: (role_id: number) => {
-    get().rolePermissions.forEach((rolePermission) => {
-      console.log(rolePermission);
-      if (rolePermission.role_id === role_id) {
-        console.log(rolePermission);
-      }
-    });
-  },
+  setRolePermission: (value: RolePermission[]) =>
+    set({ rolePermission: value }, false, "SET_ROLE_PERMISSION"),
 });
 
 export const useRolePermissionStore = create<RolePermissionStore>()(

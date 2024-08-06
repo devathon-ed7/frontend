@@ -1,22 +1,47 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useShallow } from "zustand/react/shallow";
 import { BackTo } from "../../components/BackTo/BackTo";
+import { Switcher } from "../../components/Switcher/Switcher";
+//store
 import { useRolesStore } from "../../store/roles.store";
 import { usePermissionsStore } from "../../store/permissions.store";
-import { Switcher } from "../../components/Switcher/Switcher";
 import { useRolePermissionStore } from "../../store/rolePermission.store";
+//hooks
+import useRolePermission from "../../hooks/useRolePermission";
+import usePermissions from "../../hooks/usePermissions";
 
 export const UpdateRoleView = () => {
   const { id } = useParams();
-  const role = useRolesStore((state) => state.getRolById(Number(id)));
+  //roles
+  const role = useRolesStore(useShallow((state) => state.getRolById(Number(id))));
+  //permissions
   const permissions = usePermissionsStore((state) => state.permissions);
-  //const setPermissionById = usePermissionsStore((state) => state.setPermissionById);
-  const getPermissionsforRole = useRolePermissionStore((state) =>
-    state.getPermissionsforRole(Number(id)),
-  );
+  const setPermissionById = usePermissionsStore((state) => state.setPermissionById);
+  //role permissions
+  const rolePermissions = useRolePermissionStore(useShallow((state) => state.rolePermissions));
+  //const setRolePermission = useRolePermissionStore((state) => state.setRolePermission);
+  //hook
+  const { getPermissionForRole } = useRolePermission();
+  const { getPermissions } = usePermissions();
 
-  const rolePermissions = useRolePermissionStore((state) => state.rolePermissions);
+  useEffect(() => {
+    const fetchPermissions = async () => {
+      await getPermissions();
+    };
+    if (permissions.length === 0) {
+      fetchPermissions();
+    }
+  }, []);
 
-  const handleCheckboxChange = (id: number) => () => {
+  useEffect(() => {
+    const fetchRolePermissions = async () => {
+      await getPermissionForRole(Number(id));
+    };
+    fetchRolePermissions();
+  }, []);
+
+  const handlePermissionChange = (id: number) => {
     setPermissionById(id);
   };
 
@@ -29,7 +54,9 @@ export const UpdateRoleView = () => {
       <div className="flex-auto px-8">
         <h1 className="text-3xl">Actualizar rol</h1>
         <h2 className="mt-8">Permisos</h2>
+
         {/* permission list */}
+
         {permissions.map((permission) => (
           <div
             key={permission.id}
@@ -41,24 +68,25 @@ export const UpdateRoleView = () => {
               </div>
 
               <Switcher
-                isChecked={permission.active}
-                onCheckboxChange={handleCheckboxChange(permission.id)}
+                isChecked={permission.active !== undefined ? permission.active : false}
+                onCheckboxChange={() => handlePermissionChange(permission.id)}
               />
             </div>
           </div>
         ))}
+
         <pre>{JSON.stringify(role, null, 2)}</pre>
         <pre>{JSON.stringify(permissions, null, 2)}</pre>
       </div>
       {/** actions */}
-      <div className="mt-auto flex items-center space-x-2 border-t border-neutral-200 p-4">
+      {/*<div className="mt-auto flex items-center space-x-2 border-t border-neutral-200 p-4">
         <button className="btn-primary" onClick={() => handleUpdateRole()}>
           Save
         </button>
         <button className="btn-secondary" onClick={() => setData({ name: "", description: "" })}>
           Cancel
         </button>
-      </div>
+      </div>*/}
     </div>
   );
 };

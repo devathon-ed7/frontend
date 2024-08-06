@@ -1,7 +1,7 @@
 export interface Permission {
   id: number;
   name: string;
-  active: boolean;
+  active?: boolean;
 }
 
 export interface PermissionsResponse {

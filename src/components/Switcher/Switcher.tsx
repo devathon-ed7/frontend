@@ -1,14 +1,14 @@
 export const Switcher = ({ isChecked, onCheckboxChange }) => {
   return (
     <>
-      <label className="has-[:checked]:bg-cello-500 relative inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent]">
+      <label className="relative inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-cello-500">
         <input
           type="checkbox"
           checked={isChecked}
           onChange={onCheckboxChange}
           className="peer sr-only [&:checked_+_span_svg[data-checked-icon]]:block [&:checked_+_span_svg[data-unchecked-icon]]:hidden"
         />
-        <span className="peer-checked:text-cello-500 absolute inset-y-0 start-0 z-10 m-1 inline-flex size-6 items-center justify-center rounded-full bg-white text-gray-400 transition-all peer-checked:start-6">
+        <span className="absolute inset-y-0 start-0 z-10 m-1 inline-flex size-6 items-center justify-center rounded-full bg-white text-gray-400 transition-all peer-checked:start-6 peer-checked:text-cello-500">
           <svg
             data-unchecked-icon
             xmlns="http://www.w3.org/2000/svg"

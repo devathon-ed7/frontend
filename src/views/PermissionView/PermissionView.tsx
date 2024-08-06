@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import usePermissions from "../../hooks/usePermissions";
-import { use } from "i18next";
 import { usePermissionsStore } from "../../store/permissions.store";
 import { useEffect } from "react";
 

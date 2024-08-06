@@ -12,7 +12,7 @@ const createRolePermission = async (data: RolePermissionRequest) => {
   }
 };
 
-const getPermissionsforRole = async (roleId: string) => {
+const getPermissionsforRole = async (roleId: number) => {
   try {
     const response = await api.get(`${ROLE_PERMISSION_ENDPOINT}/${roleId}`);
     return response;

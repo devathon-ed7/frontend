@@ -1,6 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-
-import HomeView from "../views/HomeView/HomeView";
 import LoginView from "../views/LoginView/LoginView";
 import { SignupView } from "../views/SignupView/SignupView";
 import ForgotPassView from "../views/ForgotPassView/ForgotPassView";
@@ -26,7 +24,6 @@ export const router = createBrowserRouter([
         element: <DashboardLayout />,
         children: [
           { path: "home", element: <Dashboard /> },
-
           { path: "users", element: <UserView /> },
           { path: "roles", element: <RolesView /> },
           { path: "roles/create", element: <CreateRoleView /> },
@@ -57,7 +54,7 @@ export const router = createBrowserRouter([
       // home
       {
         path: "/home",
-        element: <HomeView />,
+        element: <LoginView />,
       },
     ],
   },

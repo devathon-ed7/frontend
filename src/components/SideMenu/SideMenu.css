@@ -68,3 +68,36 @@
     background-size: contain;
     margin-right:0.25rem;
 }
+.nav-item-hover:hover {
+    background-color: #d3d3d3; 
+}
+.side-menu {
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  .max-nav-width {
+    width: 150px; 
+  }
+  
+  .min-nav-width {
+    width: 60px; 
+  }
+  
+  .chevron-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+  
+  .chevron {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .chevron-left {
+    transform: rotate(180deg);
+  }
+  
+  .chevron-right {
+    transform: rotate(0deg);
+  }

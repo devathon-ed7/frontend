@@ -4,4 +4,5 @@ export interface NavItemProps {
   compact?: boolean;
   hasIcon?: boolean;
   children?: React.ReactNode;
+  className?: string;
 }

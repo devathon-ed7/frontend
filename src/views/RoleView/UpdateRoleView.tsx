@@ -96,11 +96,12 @@ export const UpdateRoleView = () => {
       <div className="mt-auto flex items-center space-x-2 border-t border-neutral-200 p-4">
         <button className="btn-primary" onClick={() => handleUpdateRole()}>
           Save
-        </button> {/*}
+        </button>{" "}
+        {/*}
         <button className="btn-secondary" onClick={() => setData({ name: "", description: "" })}>
           Cancel
         </button> */}
-      </div> 
+      </div>
     </div>
   );
 };

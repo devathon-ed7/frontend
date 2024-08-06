@@ -1,4 +1,4 @@
-import { useRolePermissionStore } from "../store/rolePermission.store";
+// import { useRolePermissionStore } from "../store/rolePermission.store";
 import rolePermissionService from "../services/rolePermission";
 import { RolePermissionRequest, RolePermissionsResponse } from "../types/rolePermissionTypes";
 
